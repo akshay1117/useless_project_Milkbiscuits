@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'screens/home_screen.dart';
+import 'screens/player_screen.dart';
+import 'controllers/playback_controller.dart';
 
 void main() {
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
     debugPrint('Anti-Music Player Error: ${details.exception}');
   };
-  runApp(const AntiMusicPlayerApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => PlaybackController()..loadPlaylist(),
+      child: const AntiMusicPlayerApp(),
+    ),
+  );
 }
 
 class AntiMusicPlayerApp extends StatelessWidget {
@@ -27,33 +36,10 @@ class AntiMusicPlayerApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const PlaceholderScreen(title: 'Home Screen'),
-        '/player': (context) => const PlaceholderScreen(title: 'Player Screen'),
+        '/': (context) => const HomeScreen(),
+        '/player': (context) => const PlayerScreen(),
       },
     );
   }
 }
 
-class PlaceholderScreen extends StatelessWidget {
-  final String title;
-  const PlaceholderScreen({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            if (title == 'Home Screen') {
-              Navigator.pushNamed(context, '/player');
-            } else {
-              Navigator.pop(context);
-            }
-          },
-          child: Text(title == 'Home Screen' ? 'Go to Player' : 'Go Back'),
-        ),
-      ),
-    );
-  }
-}
