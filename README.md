@@ -11,7 +11,7 @@
 
 ### Team Members
 - Team Lead: [Akshaya R] - [NSSCE]
-- Member 2: [Akshay Krishnan TV] - [NSSCE]
+- Member 1: [Akshay Krishnan TV] - [NSSCE]
 
 ### Project Description
 An ultra-modern, Spotify-inspired music player that is as smooth and satisfying as dipping a Milk Biscuit in hot tea.
