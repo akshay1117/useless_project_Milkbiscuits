@@ -6,22 +6,21 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Milk Biscuits]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Akshaya R] - [NSSCE]
+- Member 2: [Akshay Krishnan TV] - [NSSCE]
 
 ### Project Description
-[2-3 lines about what your project does]
+An ultra-modern, Spotify-inspired music player that is as smooth and satisfying as dipping a Milk Biscuit in hot tea.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People are forced to listen to music on boring, generic music players that lack aesthetic flavor and emotional warmth. Also, there's no native warning system to aggressively stop users from illegally seeking through songs they shouldn't be skipping. 
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We built an over-engineered, visually stunning music player with glassmorphism, dynamic album art scaling, and a terrifying "ACTION BLOCKED" toast message. It's the perfect blend of modern UI and authoritarian playback control.
 
 ## Technical Details
 ### Technologies/Components Used

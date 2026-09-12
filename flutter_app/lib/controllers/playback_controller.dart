@@ -21,8 +21,7 @@ class PlaybackController extends ChangeNotifier {
   final Random _random = Random();
 
   int seekAttempts = 0;
-  
-  int get annoyanceLevel => (seekAttempts * 10).clamp(0, 100);
+  int get annoyanceLevel => (seekAttempts * 25).clamp(0, 100);
   
   String get annoyanceLabel {
     if (annoyanceLevel < 20) return 'Calm';
@@ -49,7 +48,7 @@ class PlaybackController extends ChangeNotifier {
   }
 
   void _startDecayTimer() {
-    _decayTimer = Timer.periodic(const Duration(seconds: 4), (timer) {
+    _decayTimer = Timer.periodic(const Duration(seconds: 10), (timer) {
       if (seekAttempts > 0) {
         seekAttempts--;
         notifyListeners();

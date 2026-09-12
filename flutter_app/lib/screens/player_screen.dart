@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../controllers/playback_controller.dart';
 import 'dart:math';
+import 'dart:ui';
 
 class PlayerScreen extends StatefulWidget {
   const PlayerScreen({super.key});
@@ -110,7 +111,24 @@ class _PlayerScreenState extends State<PlayerScreen> with TickerProviderStateMix
           final isHighAnnoyance = controller.annoyanceLevel > 50;
 
           return Stack(
+            fit: StackFit.expand,
             children: [
+              // Blurred Background
+              if (song != null)
+                Positioned.fill(
+                  child: (song.image.startsWith('http'))
+                      ? Image.network(song.image, fit: BoxFit.cover)
+                      : Image.asset(song.image, fit: BoxFit.cover),
+                ),
+              if (song != null)
+                Positioned.fill(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 60.0, sigmaY: 60.0),
+                    child: Container(
+                      color: Colors.black.withValues(alpha: 0.6), // Dark overlay
+                    ),
+                  ),
+                ),
               SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -211,8 +229,8 @@ class _PlayerScreenState extends State<PlayerScreen> with TickerProviderStateMix
                                   song?.title ?? 'Midnight City',
                                   style: GoogleFonts.geist(
                                     color: const Color(0xFFFFFFFF),
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w700,
                                     letterSpacing: -0.24,
                                   ),
                                   maxLines: 1,
@@ -222,8 +240,8 @@ class _PlayerScreenState extends State<PlayerScreen> with TickerProviderStateMix
                                 Text(
                                   song?.artist ?? 'M83',
                                   style: GoogleFonts.geist(
-                                    color: const Color(0xFF71717A),
-                                    fontSize: 18,
+                                    color: const Color(0xFFB3B3B3),
+                                    fontSize: 16,
                                     fontWeight: FontWeight.w400,
                                   ),
                                   maxLines: 1,

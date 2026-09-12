@@ -27,7 +27,6 @@ class _MainShellState extends State<MainShell> {
         },
       ),
       const PlayerScreen(),
-      const Center(child: Text('System Screen Placeholder')),
     ];
   }
 
@@ -51,7 +50,6 @@ class _MainShellState extends State<MainShell> {
           children: [
             _buildNavItem(0, 'Library', Icons.queue_music, Icons.queue_music),
             _buildNavItem(1, 'Playing', Icons.play_circle_outline, Icons.play_circle),
-            _buildNavItem(2, 'System', Icons.tune, Icons.tune),
           ],
         ),
       ),
