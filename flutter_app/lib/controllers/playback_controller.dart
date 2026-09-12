@@ -22,7 +22,7 @@ class PlaybackController extends ChangeNotifier {
 
   int seekAttempts = 0;
   int get annoyanceLevel => (seekAttempts * 25).clamp(0, 100);
-  
+
   String get annoyanceLabel {
     if (annoyanceLevel < 20) return 'Calm';
     if (annoyanceLevel < 50) return 'Getting annoying';
@@ -38,7 +38,9 @@ class PlaybackController extends ChangeNotifier {
     return Colors.red;
   }
 
-  Song? get currentSong => _currentIndex >= 0 && _currentIndex < playlist.length ? playlist[_currentIndex] : null;
+  Song? get currentSong => _currentIndex >= 0 && _currentIndex < playlist.length
+      ? playlist[_currentIndex]
+      : null;
 
   Timer? _decayTimer;
 
@@ -122,17 +124,9 @@ class PlaybackController extends ChangeNotifier {
 
     _sabotageTimer = Timer(Duration(seconds: nextSabotageDelay), () {
       if (totalDuration.inSeconds > 0) {
-        // Randomize WHAT the sabotage is
-        final action = _random.nextInt(10);
-        
-        if (action < 3) {
-          // 30% chance: Skip to the next song completely randomly
-          playNext();
-        } else {
-          // 70% chance: Skip to a completely random second in the current song
-          final randomSeconds = _random.nextInt(totalDuration.inSeconds);
-          _audioPlayer.seek(Duration(seconds: randomSeconds));
-        }
+        // Skip to a completely random second in the current song
+        final randomSeconds = _random.nextInt(totalDuration.inSeconds);
+        _audioPlayer.seek(Duration(seconds: randomSeconds));
       }
       // Schedule the next sabotage recursively
       _scheduleNextSabotage();
@@ -151,8 +145,7 @@ class PlaybackController extends ChangeNotifier {
   }
 
   Future<void> seek(Duration position) async {
-    // Normal seeking is disabled in Phase 4. It routes to punishment.
-    onUserSeekAttempt();
+    await _audioPlayer.seek(position);
   }
 
   Future<void> playNext() async {
