@@ -2,7 +2,7 @@
 
 
 
-# [Project Name] 🎯
+# Anti-Music Player 🎵
 
 
 ## Basic Details
@@ -25,72 +25,61 @@ We built an over-engineered, visually stunning music player with glassmorphism, 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- Languages used: Dart
+- Frameworks used: Flutter
+- Libraries used: just_audio
+- Tools used: Android Studio / VS Code
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+```bash
+cd flutter_app
+flutter pub get
+```
 
 # Run
-[commands]
+```bash
+flutter run
+```
 
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots
+![Screenshot 1](Screenshot%202026-09-12%20at%2007.47.28.png)
+*Player View 1*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Screenshot 2](Screenshot%202026-09-12%20at%2007.50.42.png)
+*Player View 2*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+```mermaid
+graph TD
+    A[Press Play] --> B[Song plays normally]
+    B -- After 5s --> C[Jump to random position]
+    C -- After 5s --> C
+    B -- Drag seek bar --> D["Show 'Nice try 😈'"]
+    C -- Drag seek bar --> D
+    D --> E[seekAttempts += 1]
+    E --> F[Different song starts from 0:00]
+    F --> B
+```
+*Workflow diagram illustrating the Anti-Music Player's chaotic playback logic.*
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[Demo Video](https://drive.google.com/file/d/1EXC1Jglgp027T32EY__1aX2VZ9pO36C9/view?usp=drivesdk)
+*Watch the Anti-Music Player in action, demonstrating its chaotic playback behavior.*
 
 # Additional Demos
-[Add any extra demo materials/links]
+None
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Akshaya R: UI/UX design, visual styling, and layouts.
+- Akshay Krishnan TV: Playback logic, state management, and anti-music features.
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
